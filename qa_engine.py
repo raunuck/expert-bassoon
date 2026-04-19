@@ -15,8 +15,4 @@ def get_answer(question, text):
 
     return sentences[int(best_match)]
 
-
-summarizer = pipeline("summarization")
-
-def summarize(text):
-    return summarizer(text, max_length=100, min_length=30, do_sample=False)[0]['summary_text']
+
