@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Sonu's AI Study Assistant</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-target="view-notes"><span class="icon">📝</span> Notes</a></li>
+                <li><a href="#" class="nav-link" data-target="view-summary"><span class="icon">📑</span> Summary</a></li>
+                <li><a href="#" class="nav-link" data-target="view-quiz"><span class="icon">❓</span> Quiz</a></li>
+                <li><a href="#" class="nav-link" data-target="view-chat"><span class="icon">💬</span> Chat</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <div class="background-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+
+            <div class="content-container">
+                
+                <!-- Notes View -->
+                <section id="view-notes" class="view active">
+                    <header>
+                        <h1>Your Study Notes</h1>
+                        <p>Upload a PDF or paste your notes to begin learning.</p>
+                    </header>
+                    
+                    <div class="input-section glass-panel">
+                        <div class="input-controls">
+                            <div class="file-upload">
+                                <label for="pdf-upload" class="upload-btn">
+                                    <span class="icon">📄</span> Upload PDF
+                                </label>
+                                <input type="file" id="pdf-upload" accept=".pdf" class="hidden-input">
+                                <span id="file-name">No file selected</span>
+                            </div>
+                        </div>
+
+                        <label for="notes-input" class="notes-label">Paste your study notes here:</label>
+                        <textarea id="notes-input" placeholder="E.g. Photosynthesis is the process used by plants..."></textarea>
+                    </div>
+                </section>
+
+                <!-- Summary View -->
+                <section id="view-summary" class="view hidden">
+                    <header>
+                        <h1>Summary</h1>
+                        <p>Get AI-generated summaries of your notes.</p>
+                    </header>
+                    
+                    <div class="action-panel glass-panel">
+                        <div class="summary-options">
+                            <label for="summary-type">Summary Style:</label>
+                            <select id="summary-type" class="custom-select">
+                                <option value="short">Short & Concise</option>
+                                <option value="detailed" selected>Detailed</option>
+                                <option value="bullets">Bullet Points</option>
+                            </select>
+                            <button id="btn-summarize" class="primary-btn ml-auto">
+                                <span class="icon">✨</span> Generate Summary
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="summary-loading" class="loading-state hidden">
+                        <div class="spinner"></div>
+                        <p>Summarizing your notes...</p>
+                    </div>
+
+                    <div id="summary-results" class="results-section glass-panel hidden">
+                        <!-- Summary injected here -->
+                    </div>
+                </section>
+
+                <!-- Quiz View -->
+                <section id="view-quiz" class="view hidden">
+                    <header>
+                        <h1>Knowledge Check</h1>
+                        <p>Test your understanding with an AI-generated quiz.</p>
+                    </header>
+                    
+                    <div class="action-panel glass-panel">
+                        <p>Ready to test yourself based on your notes?</p>
+                        <button id="btn-quiz" class="primary-btn">
+                            <span class="icon">❓</span> Generate New Quiz
+                        </button>
+                    </div>
+
+                    <div id="quiz-loading" class="loading-state hidden">
+                        <div class="spinner"></div>
+                        <p>Generating your quiz...</p>
+                    </div>
+
+                    <div id="quiz-results" class="results-section glass-panel hidden">
+                        <!-- Quiz injected here -->
+                    </div>
+                </section>
+
+                <!-- Chat View -->
+                <section id="view-chat" class="view hidden">
+                    <header>
+                        <h1>Chat with Notes</h1>
+                        <p>Ask questions directly about the content in your notes.</p>
+                    </header>
+                    
+                    <div class="chat-section glass-panel">
+                        <div id="chat-history" class="chat-history">
+                            <div class="chat-message ai-message">
+                                Hello! I've read your notes. Ask me anything about them!
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chat-input" placeholder="Ask a question..." autocomplete="off" />
+                            <button id="btn-send-chat" class="primary-btn">Send</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Include marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
