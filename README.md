@@ -12,8 +12,7 @@ AI Study Assistant is a comprehensive web application designed to help students 
 ## Tech Stack
 
 - **Backend**: FastAPI (Python)
-- **Chat AI Integration**: Google Gemini (`gemini-2.5-flash`) using `google-genai` SDK
-- **Summarization & Quiz AI Integration**: Local ML capabilities using `scikit-learn`, `networkx`, `sentence-transformers`, `transformers`, `torch`
+- **AI Integration**: Google Gemini (`gemini-2.5-flash`) using `google-genai` SDK
 - **PDF Processing**: `pypdf`
 - **Data Validation**: Pydantic
 - **Frontend**: HTML/CSS/JS (served as static files)
